@@ -4,7 +4,8 @@ import random
 import math
 
 AFFICHE_ANIMATION = True
-TEMP_ANIMATION = 0.5 # Le temps est en secondes
+TEMP_ANIMATION = 0.3 # Le temps est en secondes
+TEMP_ENTRE_JOUEUR = 1 # Le temps est en secondes
 
 plateau = np.zeros((6,7))   
 joueur = 1
@@ -94,9 +95,9 @@ def lacherPiece(colonne):
 
             ligneDuPion = ligne + 1
         
-        if AFFICHE_ANIMATION:
-            time.sleep(TEMP_ANIMATION)
-            affiche()
+            if AFFICHE_ANIMATION:
+                time.sleep(TEMP_ANIMATION)
+                affiche()
 
     return ligneDuPion
 
@@ -259,6 +260,7 @@ def jouerPartie():
             ligneJoue = lacherPiece(colonneJoue)
         elif joueur == 2:
             print("Tour de l'ordinateur :")
+            time.sleep(TEMP_ENTRE_JOUEUR)
             colonneJoue = jouerOrdiV1()
             
             ligneJoue = lacherPiece(colonneJoue)
