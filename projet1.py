@@ -265,7 +265,6 @@ def jouerPartie():
             
             ligneJoue = lacherPiece(colonneJoue)
 
-        # TODO: check for full game
         if coupGagnant(ligneJoue, colonneJoue, joueur):
             print()
             print("==========")
