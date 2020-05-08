@@ -276,7 +276,7 @@ def jouerPartie():
             print()
 
             partieFini = True
-        elif jeuEncorePossible == False:
+        elif jeuEncorePossible() == False:
             print()
             print("==========")
             print(" FIN DU JEU. Il n'y a pas de vainqueur...")
