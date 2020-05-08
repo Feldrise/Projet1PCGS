@@ -251,10 +251,10 @@ def jouerPartie():
 
         if joueur == 1:
             print("Votre tour :")
-            colonneJoue = int(input("Choisis une colonne entre 1 et 7 ")) - 1
+            colonneJoue = int(input("Choisis une colonne entre 1 et 7 : ")) - 1
 
             while coupEstPossible(colonneJoue) == False:
-                colonneJoue = int(input("Erreur de saisie. Choisis une colonne entre 1 et 7 ")) - 1
+                colonneJoue = int(input("Erreur de saisie. Choisis une colonne entre 1 et 7 : ")) - 1
             
             ligneJoue = lacherPiece(colonneJoue)
         elif joueur == 2:
