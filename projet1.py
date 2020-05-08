@@ -42,8 +42,6 @@ def symboleCase(symbole):
 
 ## Cette fonction permet d'afficher le plateau 
 def affiche():
-    global plateau
-
     # On doit commencer par afficher les numéro de colonnes
     clearScreen()
     print("|1|2|3|4|5|6|7|")
@@ -72,18 +70,12 @@ def joueurSuivant():
 
 ## Cette fonction indique si le coup est possible
 def coupEstPossible(colonne):
-    global plateau
-
     return colonne >= 0 and colonne < len(plateau[0]) and plateau[0, colonne] == 0
 
 ## Cette fonction place la pièce au bon endroit
 ## Pour des question pratique, la fonction nous renvoie le numéro de la ligne sur laquelle le pion est tombé
 def lacherPiece(colonne):
-    global AFFICHE_ANIMATION
-    global TEMP_ANIMATION
-
     global plateau
-    global joueur
 
     plateau[0, colonne] = joueur # Il faut que par défaut il soit en haut
     ligneDuPion = 0
@@ -113,7 +105,6 @@ def lacherPiece(colonne):
 
 ## Cette fonction détermine si le coup est gagnant verticalement
 def coupGagnantVertical(lignePion, colonnePion, joueur):
-    global plateau
     ## NOTE : ici on ne prend pas la variable global joueur mais celle passée à la fonction
 
     # Cette fonction est relativement simple, on doit juste vérifier qu'il y 3 pions en dessous
@@ -128,7 +119,6 @@ def coupGagnantVertical(lignePion, colonnePion, joueur):
 
 ## Cette fonction détermine si le coup est gagnant horizontalement
 def coupGagnantHorizontal(lignePion, colonnePion, joueur):
-    global plateau
     ## NOTE : ici on ne prend pas la variable global joueur mais celle passée à la fonction
 
     # Dans cette fonction, on compte le nombre de pion du joueur à droite, puis à gauche
@@ -150,7 +140,6 @@ def coupGagnantHorizontal(lignePion, colonnePion, joueur):
 
 ## Cette fonction détermine si le coup est gagnant sur la diagonal qui monte à droite
 def coupGagnantDiagonalDroite(lignePion, colonnePion, joueur):
-    global plateau
     ## NOTE : ici on ne prend pas la variable global joueur mais celle passée à la fonction
 
     # Dans cette fonction, on compte le nombre de pion du joueur à droite+haut, puis à gauche+bas
@@ -179,7 +168,6 @@ def coupGagnantDiagonalDroite(lignePion, colonnePion, joueur):
 
 ## Cette fonction détermine si le coup est gagnant sur la diagonal qui monte à gauche
 def coupGagnantDiagonalGauche(lignePion, colonnePion, joueur):
-    global plateau
     ## NOTE : ici on ne prend pas la variable global joueur mais celle passée à la fonction
 
     # Dans cette fonction, on compte le nombre de pion du joueur à droite+bas, puis à gauche+haut
@@ -240,8 +228,6 @@ def jeuEncorePossible():
 ## Cette fonction n'est pas explicite dans le TP. C'est une sous partie de la boucle 
 ## du jeu qui conciste à jouer une partie
 def jouerPartie():
-    global joueur
-
     partieFini = False
 
     while partieFini == False:
@@ -292,8 +278,6 @@ def jouerPartie():
 
 ## Cette fonction est la boulce du jeu
 def boucleJeu():
-    global joueur
-
     jeuFini = False
 
     while jeuFini == False:
@@ -303,6 +287,7 @@ def boucleJeu():
 
         jeuFini = input("Voulez vous rejouer ? (o/N)") != "o"
 
+    print()
     print("Merci d'avoir joué !")
     print("2020 (c) Feldrise | https://feldrise.com")
 
